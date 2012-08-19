@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CS179 Lab 3: Exercise #2 - jQM Instructions</title>
+        <meta charset='utf-8'>
+        <link href='http://fonts.googleapis.com/css?family=Sirin+Stencil' rel='stylesheet' type='text/css'>
+        <link href="../common/styles.css" rel="stylesheet" type="text/css" />
+        <link href="styles.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="wrapper-main">
+            <div id="header">
+                <a href="javascript:history.go(-1)"  onmouseover="self.status=document.referrer;return true">Go Back</a>
+                <h1>CS179 Lab 3: Exercise #2 - jQM Instructions</h1>
+                <h5>Goal: Get comfortable parsing and reading JS object definitions and JSON.</h5>
+            </div>
+            <div id="instructions">
+                <h3>Instructions</h3>
+                <div class="wrapper">
+                    <p>
+                        The only file you need to modify is <code>lab3/exercise-2/exercise.js</code>.
+                        See the <code>-pseudocode</code> version for help. Also see
+                        <a href="http://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">
+                            w3school's array object reference
+                        </a>.
+                    </p>
+                    <ol>
+                        <li>
+                            <ol>
+                                Process and display tweets.
+                                <li>
+                                    Process the tweet objects appropriately in
+                                    <code>displayTweets</code>. At least, print
+                                    the tweet text. (Hint: Examine the results
+                                    being logged to the console in the ajax
+                                    call to Twitter's api.) To print out the
+                                    tweets in a more "sensible" manner, you will
+                                    have to first analyze the tweet objects in
+                                    the console.
+                                </li>
+                                <li>
+                                    Construct and return a <code>li</code> representation
+                                    of the tweet in <code>buildTweet</code>.
+                                    <ul>
+                                        <li>
+                                            Add or style the list item as you wish, but at
+                                            least put the tweet text in it.
+                                        </li>
+                                        <li>
+                                            *Make the tweets look more like tweets by
+                                            changing the color of references and hashes* (Advanced)
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Add the newly-constructed tweets to the list.</li>
+                                <li>Limit the list to a certain length by deleting old tweets.</li>
+                            </ol>
+                            <p>
+                                For help, see <a href="../demo-2-jqm">demo #2</a>,
+                                which introduces jQueryMobile. See the end of the presentation as well.
+                                Also check out the <a href="http://jquerymobile.com/test/docs/lists/docs-lists.html"
+                                target="_blank">jQM Docs on Lists</a>.
+                            </p>
+                        </li>
+                        <li>
+                            <ol>
+                                Store recent queries by filling the body of <code>saveQuery</code>
+                                and making clicking on the items resubmit the form with the stored
+                                query string.
+                                <li>
+                                    Make a new clickable <code>li</code> containing the string.
+                                </li>
+                                <li>
+                                    Bind to it's <code>click</code> event a function that
+                                    resubmits <code>form#query-form</code> with the value
+                                    of <code>input#query-input</code> set to the it's
+                                    text content.
+                                </li>
+                                <li>
+                                    Add the <code>li</code> to <code>ul#recent</code>
+                                </li>
+                                <li>
+                                    Remove old queries from the list and storage to keep it to a
+                                    certain length.
+                                </li>
+                                <li>
+                                    Refresh the list.
+                                </li>
+                            </ol>
+                        </li>
+                        <li>
+                            <ol>
+                                Use session storage to persist stored queries.
+                                <li>
+                                    Write the body of <code>storeQuery</code> to store queries
+                                    in sessionStorage.
+                                </li>
+                                <li>
+                                    Write the body of <code>restoreQueries</code> to
+                                    call <code>storeQuery</code> on each item in
+                                    client-side storage.
+                                </li>
+                            </ol>
+                            <p>
+                                For help, see <a href="../demo-3-storage" rel="external">demo #3</a>,
+                                which shows different client-side storage methods.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

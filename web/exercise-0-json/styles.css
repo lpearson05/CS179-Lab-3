@@ -1,0 +1,19 @@
+div.object {
+    border: 4px inset #fff;
+    padding-left: 4px;
+    margin: 2px;
+}
+h4 {
+    margin: 0;
+}
+h4 {
+    text-decoration:underline;
+}
+div#instructions {
+    max-width:600px;
+    margin:auto;
+    border:1px solid white;
+    padding:8px;
+    display:none;
+    margin-bottom: 16px;
+}

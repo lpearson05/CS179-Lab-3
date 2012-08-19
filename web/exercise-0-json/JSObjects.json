@@ -1,0 +1,19 @@
+[
+    {
+        "description":"I was reconstructed from JSON.",
+        "title":"JSON data"
+    },
+    {
+        "title":"JSON data",
+        "description":"I was reconstructed from JSON, and I have two children. Did you display them?",
+        "children":
+            [{
+                "description":"I was a child object reconstructed from JSON.",
+                "title":"JSON data child"
+            },
+            {
+                "description":"I was a child object reconstructed from JSON.",
+                "title":"JSON data child"
+            }]
+    }
+]

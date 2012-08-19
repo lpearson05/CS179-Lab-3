@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CS179 Lab 3: Tip - Virtual Hosts</title>
+        <meta charset='utf-8'>
+        <link href='http://fonts.googleapis.com/css?family=Sirin+Stencil' rel='stylesheet' type='text/css'>
+        <link href="../common/styles.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="wrapper-main">
+            <div id="header">
+                <a href="..">Return to Index</a>
+                <h1>CS179 Lab 3: Tip - Virtual Hosts</h1>
+            </div>
+            <div id="content">
+                <h3>Setup Instructions</h3>
+                <ul>
+                    <li>
+                        WARNING: Enabling vhosts disables access to XAMPP's regular
+                        document root, so you will need to add an entry for that as
+                        well.
+                    </li>
+                    <li>
+                        Choose to a webapp or a directory containing web apps (i.e., your git repo).
+                        That will be the virtual host's <code>DIRECTORY_PATH</code>. <code>DIRECTORY_PATH</code>
+                        must be the full path with all forward slashes <code>/</code>, as opposed to
+                        back slashes, and should not end with a slash. All subdirectories will be made
+                        accessible as well.
+                    </li>
+                    <li>
+                        Open <code>C:\xampp\apache\conf\extra\httpd-vhosts.conf</code> or, if you're running
+                        MAMP, <code>/Applications/MAMP/conf/apache/extra/httpd-vhosts.conf</code>.
+                    </li>
+                    <li>In these files, line comments are specified with <code>#</code>.</li>
+                    <li>Uncomment <code>NameVirtualHost *:80</code>, by removing the leading <code>#</code>.</li>
+                    <li>
+                        Think of a descriptive <code>SERVER_NAME</code> (i.e., apps.cs179.local).
+                    </li>
+                    <li>Somewhere futher into the file, add an entry like this:
+                    <code class="tip-code" style="color:black;">
+&lt;Directory "DIRECTORY_PATH"&gt;
+  Order Deny,Allow
+  Allow from all
+&lt;/Directory&gt;
+&lt;VirtualHost *:80&gt;
+    ServerAdmin does-not-matter@localhost
+    DocumentRoot "DIRECTORY_PATH"
+    ServerName SERVER_NAME
+    ErrorLog "logs/whatever-error.log"
+    CustomLog "logs/whatever-access.log" combined
+&lt;/VirtualHost&gt;
+                    </code>
+                    </li>
+                    <li>
+                        Open the file <code>C:\Windows\System32\drivers\etc\hosts</code>
+                        or (if not running Windows) <code>/etc/hosts</code>
+                     </li>
+                     <li>
+                        Somewhere in the file add an entry like the following:
+                         <code class="tip-code" style="color:black;">
+ 127.0.0.1      SERVER_NAME     # optional comment: cs179 web app
+ 127.0.0.1      localhost       # add this if the entry does not exist
+                         </code>
+                     </li>
+                     <li>
+                        Sample vhosts entry for directory containing lab projects <code>C:\Users\Administrator\Documents\CS 179\Labs</code>:
+                        <code class="tip-code" style="color:black;">
+&lt;Directory "C:/Users/Administrator/Documents/CS 179/Labs"&gt;
+  Order Deny,Allow
+  Allow from all
+&lt;/Directory&gt;
+
+&lt;VirtualHost *:80&gt;
+    ServerAdmin does-not-matter@localhost
+    DocumentRoot "C:/Users/Administrator/Documents/CS 179/Labs"
+    ServerName labs.cs179.dev
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:80&gt;
+    ServerAdmin admin@localhost
+    DocumentRoot "C:/xampp/htdocs"
+    ServerName xhost
+&lt;/VirtualHost&gt;
+                        </code></li>
+                     <li>
+                        Sample hosts entry:
+                        <code class="tip-code" style="color:black;">
+##
+# XAMPP vhost entries
+##
+127.0.0.1        xhost              # XAMPP default document root
+127.0.0.1        labs.cs179.dev     # cs179 lab files
+                        </code>
+                        If <code>lab3</code> is located in this 'Labs' directory, it can now be
+                        accessed from the browser at
+                        <a href="http://labs.cs179.dev/lab3">http://labs.cs179.dev/lab3</a>.
+                    </li>
+             </div>
+        </div>
+    </body>
+</html>

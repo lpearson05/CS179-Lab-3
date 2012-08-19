@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CS179 Lab 3: JSON, jQuery and jQueryMobile</title>
+        <meta charset='utf-8'>
+        <link href='http://fonts.googleapis.com/css?family=Sirin+Stencil' rel='stylesheet' type='text/css'>
+        <link href="./common/styles.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="./common/Sugared_DOM.js"></script>
+    </head>
+    <body>
+        <div id="wrapper-main">
+            <div id="header">
+                <h1>CS179 Lab 3: JSON, jQuery and jQueryMobile</h1>
+            </div>
+            <div id="content">
+                <nav style="position:relative;right:48px;top:48px;float:right;">
+                    <h4 style="margin:0;padding:0;">Navigation</h4>
+                    <i style="font-size:10pt;">topic (item count)</i>
+                    <ul style="margin-top:0;margin-left:-1.25em;">
+                    </ul>
+                    <script type="text/javascript">
+                        jQuery(function($){
+                        $("h2").each(function(){
+                            $("nav > ul").append(
+                                el('li',[   // build partial DOM tree using Sugared DOM
+                                    el('a',{href:'#'+this.id},[
+                                        this.textContent+' ('+$(this).next().children().length+')'
+                                    ])
+                                ])
+                            );
+                        })});
+                    </script>
+                </nav>
+                <div>
+                    <h2 id="presentation">Presentation</a></h2>
+                    <ul>
+                        <li><a href="lab3.pdf">Lab 3 Presentation (PDF)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 id="demos">Demos</h2>
+                    <ul>
+                        <li><a href="./demo-0-json">Demo 0 - Review (or Learn) JavaScript Objects and JSON</a></li>
+                        <li><a href="./demo-1-jq">Demo 1 - jQuery Usage Examples</a></li>
+                        <li><a href="./demo-2-jqm">Demo 2 - jQMobile Page Structure</a></li>
+                        <li><a href="./demo-3-storage">Demo 3 - Client-Side Storage Functions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 id="exercises">Exercises</h2>
+                    <ul>
+                        <li><a href="./exercise-0-json">Exercise 0 - JSON</a>
+                            <ul>
+                                <li>Location: <code>./exercise-0-json</code></li>
+                                <li>Goal: Get comfortable parsing and reading JavaScript object definitons and JSON.</li>
+                                <li>If you need more help, try looking at the <code>-pseudocode</code> file. Otherwise, if you want to see a finished example, see the <a href="./exercise-0-json/?finished=1">finished version</a>.</li>
+                            </ul>
+                        </li>
+                        <li><a href="./exercise-1-jq">Exercise 1 - jQuery</a>
+                            <ul>
+                                <li>Location: <code>./exercise-1-jq</code></li>
+                                <li>Goal: Practice using jQuery by updating the Lab 2 app.</li>
+                                <li>If you need more help, try looking at the <code>-pseudocode</code> file. Otherwise, if you want to see a finished example, see the <a href="./exercise-1-jq/?finished=1">finished version</a>.</li>
+                                <li>This exercise depends on lab2. The only thing you need to do if you
+                                    did not complete lab2 is make sure that the database and user is setup
+                                    <ul>
+                                        <li>You need a user 'cs179' with password <code>student</code>.</li>
+                                        <li>A database 'cs179' to which user 'cs179' has all privileges.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="./exercise-2-jqm">Exercise 2 - jQueryMobile</a>
+                            <ul>
+                                <li>Location: <code>./exercise-2-jqm</code></li>
+                                <li>Goal: Get some exposure to making dynamic updates in the context of jQueryMobile's framework.</li>
+                                <li>If you need more help, try looking at the <code>-pseudocode</code> file. Otherwise, if you want to see a finished example, see the <a href="./exercise-2-jqm/index-finished.php">finished version</a>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 id="tips">Tips</h2>
+                    <ul>
+                        <li><a href="./tip-teams">Make Your App Code Structure Team-Friendly</a></li>
+                        <li><a href="./tip-vhosts">Setup Virtual Hosts or Your Web Apps</a></li>
+                    </ul>
+                </div>
+             </div>
+        </div>
+    </body>
+</html>

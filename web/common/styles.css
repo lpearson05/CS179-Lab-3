@@ -1,0 +1,51 @@
+body {
+    background-color: black;
+    color: white;
+    font-size: 11pt;
+    font-family: 'Century Gothic',sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Sirin Stencil','Century Gothic',sans-serif;
+}
+code {
+    color: #eeff00;
+}
+a {
+    color:#fff;
+}
+a:link {
+    color:#00dddd;
+}
+a:visited {
+    color:#ff0000;
+}
+
+h5 {
+    font-style: italic;
+}
+
+div#instructions{
+    max-width: 400px;
+}
+div#wrapper-main {
+    max-width: 720px;
+    margin:auto;
+    min-width: 480px;
+}
+div#header *{
+    margin:auto;
+    text-align:center;
+    margin-bottom: 1em;
+}
+.demo-code, .tip-code {
+    white-space: pre;
+    background: #ddd;
+    display:block;
+    padding: 1em;
+    border: 4px double black;
+    overflow: scroll;
+}
+.demo-code {
+    max-height: 30em;
+}
